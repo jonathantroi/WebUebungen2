@@ -82,22 +82,133 @@
 }
 
 #canvasArea{
-	border: 1px solid black; 
+	border: 1px solid black;
 }
 
 #progressBarContainer{
 	display:flex;
-	justify-content: center;
-	align-items: center;
 	flex-direction: column;
-	width:100%;
+	width:1000px;
+	margin:auto;
+
+	border:2px solid black;
 }
 
 #progressBar{
-	background-color: red;
+	display:flex;
+	flex-direction: row-reverse;
+
 	height:40px;
 	width:0%;
+
+	border-bottom: 2px solid black;
+
+	background-color: green;
+
 	text-align: center;
 	font-family: Arial;
+}
+
+#progress{
 	font-size: 20px;
+	text-align: center;
+	font-family: arial;
+	width:60px;
+	background-color: orange;
+	margin:auto;
+
+	border-radius: 5px;
+}
+
+#loadProgress{
+	width:60px;
+	margin:auto;
+}
+
+#navigationBar{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	height: 60px;
+
+	list-style-type: none;
+	background-color: green;
+}
+
+#catContainer{
+	display:flex;
+	flex-direction: row;
+	height:100%;
+}
+
+.navItem{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 150px;
+	height:100%;
+
+	background-color: orange;
+}
+
+.dropbtn{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+
+	border:none;
+	background-color: white;
+	cursor:pointer;
+
+	height:100%;
+	width: 150px;
+
+	background-color: orange;
+}
+
+#animationsDrp{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+	position:relative;
+	display:inline-block;
+}
+
+.animations-content{
+	display:flex;
+	justify-content: center;
+	display:none;
+	position:absolute;
+}
+
+.animations-content a{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+	display:block;
+	text-decoration: none;
+	max-width:150px;
+	height:60px;
+
+	padding-top: 25px;
+	padding-left: 20px;
+
+	background-color: orange;
+}
+
+.animations-content a:hover{
+	background-color: grey;
+}
+
+#animationsDrp:hover .animations-content{
+	display:block;
+}
+
+.navItem:hover{
+	background-color: grey;
 }

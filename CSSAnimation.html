@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css.css">
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="js.js"></script>
+
+	<title>index</title>
+</head>
+<body>
+	<ul id="navigationBar">
+		<div id="catContainer">
+			<a href="index.html"><li class="navItem">Home</li></a>
+			<a href="ticTacToeHTML.html"><li class="navItem">TicTacToe</li></a>
+			<div id="animationsDrp">
+				<button class="dropbtn">Animations</button>
+				<div class="animations-content">
+					<a href="CSSAnimation.html">CSS-Animation</a>
+					<a href="canvasAnimation.html">Canvas-Animation</a>
+				</div>
+			</div>
+			<a href="loadingBar.html"><li class="navItem">Loadingbar</li></a>
+		</div>
+		<li class="navItem">About</li>
+	</ul>
+
+	<div id="animationContainer">
+		<div id="squareContainer">
+			<div id="square"></div>
+			<div id="squareButtons">
+				<button id="animSquareW">Start animation (width)
+				<button id="animSquareH">Start animation (height)
+				<button id="stopAnimation">Stop animation
+			</div>
+		</div>
+	</div>
+</body>
+</html>

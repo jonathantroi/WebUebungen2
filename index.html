@@ -1,19 +1,26 @@
     <!--
-        Vorgaben für Übung:
+        Vorgaben für Übung
         -* Erstelle eine Webseite mit jQuery (Eine der Zusatzaufgaben zu Javascript oder gleichwertig (Ratespiel von Zahlen, Blöcke fangen(anzeigen, ausblenden,verschieben)))
         -* Verwende für den Zugriff auf die HTML-Elemente jQuery (Selector)
         -* Trenne Code: HTML, CSS, Javascript. Anpassung von einem sollte nicht Anpassung eines anderen erfordern -> class Selectors verweden
         -* Ändere Text in einem Paragraphen
         -* Baue mindestens 3 Effekte von jQuery ein (siehe w3schools Seite). Auch callback-Funktion verweden
         -* Mit Canvas mindestens ein Element zeichnen und animieren (setInterval). Evtl. ein weiteres Spiel (PingPong, Auto-Fahren oder äquivalent)
-        * Erstelle eine Progress Bar und aktualisiere sie 
-        * Erstelle eine Menüleiste, wo anhand von jQuery der aktuell ausgewählte Menüpunkt markiert wird.
-        * Diese Menüleiste soll Unterpunkte enhalten, die erst bei öffnen des jeweiligen Menüpunkts angezeigt werden
-        * Füge nachträglich einen neuen Menüpunkt o.a. durch ein Formular ein
-        * Erstelle eine Tabelle mit Personendaten (Nachname, Vorname, Email(input type email), Geburtsdatum (input type date), Lieblingsfarbe(input type color)): Ermögliche den Benutzer z.B. über einen Slider(input type range) nur Personen zwischen 20 und 40 auszuwählen, eine Personensuche durchzuführen (evtl. auch Live und mit input type search) und nach Nachname zu sortieren.
+        -* Erstelle eine Progress Bar und aktualisiere sie
+        -* Erstelle eine Menüleiste, wo anhand von jQuery der aktuell ausgewählte Menüpunkt markiert wird.
+        -* Diese Menüleiste soll Unterpunkte enhalten, die erst bei öffnen des jeweiligen Menüpunkts angezeigt werden
+        /* Füge nachträglich einen neuen Menüpunkt o.a. durch ein Formular ein
+        -* Erstelle eine Tabelle mit Personendaten
+				(Nachname,
+				Vorname,
+				Email(input type email),
+				Geburtsdatum (input type date),
+				Lieblingsfarbe(input type color)):
+				Ermögliche den Benutzer z.B. über einen Slider(input type range) nur Personen zwischen 20 und 40 auszuwählen,
+				eine Personensuche durchzuführen (evtl. auch Live und mit input type search) und nach Nachname zu sortieren.
         * Informiere dich über den Unterschied zwischen POST und GET Anfragen und verwende beide Methoden
         * Welchen Methode verwendet $("p").load(URL)?
-        * Responsive Webseite mit .offset, .position, .top, .left, .right, .flex usw. erstellen 
+        * Responsive Webseite mit .offset, .position, .top, .left, .right, .flex usw. erstellen
         * Cookies mit jQuery verwenden (eigene API)
         * Local und Session Storage verwenden, um Daten zu speichern (eigene API, ab HTML5)
         * Ist es besser jQuery von einem Content Delivery Network herunterzuladen oder bei dem Seitenaufruf mitzuliefern? Begründe!
@@ -31,60 +38,91 @@
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="ticktackJquery.js"></script>
 	<script src="js.js"></script>
-	
+
 	<title>index</title>
 </head>
 <body>
+	<ul id="navigationBar">
+		<div id="catContainer">
+			<a href="index.html"><li class="navItem">Home</li></a>
+			<a href="ticTacToeHTML.html"><li class="navItem">TicTacToe</li></a>
+			<div id="animationsDrp">
+				<button class="dropbtn">Animations</button>
+				<div class="animations-content">
+					<a href="CSSAnimation.html">CSS-Animation</a>
+					<a href="canvasAnimation.html">Canvas-Animation</a>
+				</div>
+			</div>
+			<a href="loadingBar.html"><li class="navItem">Loadingbar</li></a>
+		</div>
+		<li class="navItem">About</li>
+	</ul>
+
 	<p id="p_change">Click me!</p>
 
-	<div id="ticTacContent">
-		<div id="trumpContainer"></div>
-		<div id="ticTacArea">
-			<div class="ticTacFieldHor">
-				<div class="ticTacFieldVer" id="tt11"></div>
-				<div class="ticTacFieldVer" id="tt12"></div>
-				<div class="ticTacFieldVer" id="tt13"></div>
-			</div>
-			<div class="ticTacFieldHor">
-				<div class="ticTacFieldVer" id="tt21"></div>
-				<div class="ticTacFieldVer" id="tt22"></div>
-				<div class="ticTacFieldVer" id="tt23"></div>
-			</div>
-			<div class="ticTacFieldHor">
-				<div class="ticTacFieldVer" id="tt31"></div>
-				<div class="ticTacFieldVer" id="tt32"></div>
-				<div class="ticTacFieldVer" id="tt33"></div>
-			</div>
-		</div>
-		<div id="KimjongContainer"></div>	
-	</div>
+	<button onclick="hideName()">123</button>
 
-	<div id="animationContainer">
-		<div id="squareContainer">
-			<div id="square"></div>
-			<div id="squareButtons">
-				<button id="animSquareW">Start animation (width)
-				<button id="animSquareH">Start animation (height)
-				<button id="stopAnimation">Stop animation				
-			</div>
-		</div>
-	</div>
+	<div id="perTable">
+		<form action="Javascript:addPerson()">
+			<table>
+				<tr>
+					<td>Name</td>
+					<td><input id="nameinput" type="text" required></input></td>
+				</tr>
+				<tr>
+					<td>Nachname</td>
+					<td><input id="nachnameinput" type="text" required></input></td>
+				</tr>
+				<tr>
+					<td>Gebrtstag</td>
+					<td><input id="gebinput" type="date" required></input></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input id="emailinput" type="text" required></input></td>
+				</tr>
+				<tr>
+					<td>Farbe</td>
+					<td><input id="colorinput" type="color" required></input></td>
+				</tr>
+			</table>
 
-	<div id="canvasContainer">
-		<canvas id="canvasArea" width="200" height="200">
-		Browswe doesn´t support
-		</canvas>
-		<button id="canvasAnimation">CanvasAnimation
-	</div>
+			<input type="submit" value="absenden"></input>
+		</form>
 
-	<div id="progressBarContainer">
-		<div id="progressBar">
-			<p id="progress"></p>	
-		</div>
-		<button id="loadProgress">Load
+		<input id="searchField" type="text"></input>
 
+		<table>
+			<tr id="headerRow">
+				<td >Vorname</td>
+				<td >Nachname</td>
+				<td >Geburtstag</td>
+				<td >Email</td>
+				<td >Lieblingsfarbe</td>
+			</tr>
+			<tr class="personContent">
+				<td >Max</td>
+				<td >Mustermann</td>
+				<td >12.23.2001</td>
+				<td >email.asd@spo.com</td>
+				<td >#555555</td>
+			</tr>
+			<tr class="personContent">
+				<td >Michi</td>
+				<td >Lukk</td>
+				<td >12345</td>
+				<td >mail.aasd.com</td>
+				<td >#111111</td>
+			</tr>
+			<tr class="personContent">
+				<td >Max</td>
+				<td >Lukk</td>
+				<td >12345</td>
+				<td >mail.aasd.com</td>
+				<td >#999999</td>
+			</tr>
+		</table>
 	</div>
-	
 
 </body>
 </html>
